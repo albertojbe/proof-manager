@@ -23,17 +23,12 @@ public class TeacherService {
     }
 
     public TeacherDTO saveTeacher(TeacherDTO teacherDTO) {
-        Teacher teacher = new Teacher();
-        teacher.setName(teacherDTO.name());
-        repository.save(teacher);
+        Teacher entity = new Teacher();
+        entity.setName(teacherDTO.name());
+        repository.save(entity);
         return teacherDTO;
     }
-    public List<TeacherDTO> findAll(){
-        List<Teacher> teachers = repository.findAll();
-        List<TeacherDTO> teacherDTOs = new ArrayList<>();
-        for (Teacher teacher : teachers) {
-            teacherDTOs.add(new TeacherDTO(teacher.getName()));
-        }
-        return teacherDTOs;
+    public List<Teacher> findAll(){
+        return repository.findAll();
     }
 }

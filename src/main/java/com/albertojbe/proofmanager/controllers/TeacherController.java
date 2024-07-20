@@ -1,6 +1,7 @@
 package com.albertojbe.proofmanager.controllers;
 
 import com.albertojbe.proofmanager.models.DTOs.TeacherDTO;
+import com.albertojbe.proofmanager.models.Teacher;
 import com.albertojbe.proofmanager.services.TeacherService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -17,13 +18,13 @@ public class TeacherController {
         this.teacherService = teacherService;
     }
 
-    @GetMapping("/{name}")
+    @GetMapping("/{name}") //nao esta funcionando
     public ResponseEntity<TeacherDTO> getTeacherByName(@PathVariable(value = "name") String name){
         return ResponseEntity.ok(teacherService.getTeacherByName(name));
     }
 
     @GetMapping
-    public ResponseEntity<List<TeacherDTO>> getAllTeachers(){
+    public ResponseEntity<List<Teacher>> getAllTeachers(){
         return ResponseEntity.ok(teacherService.findAll());
     }
 
