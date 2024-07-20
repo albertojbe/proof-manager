@@ -29,7 +29,9 @@ public class Teacher implements Serializable {
     private String name;
 
     @OneToMany(mappedBy = "teacher", fetch = FetchType.EAGER)
-    @Column(nullable = false)
     Set<Discipline> disciplines = new HashSet<>();
+
+    @OneToMany(mappedBy = "teacher", fetch = FetchType.EAGER)
+    Set<Proof> proofs = new HashSet<>();
 
 }
