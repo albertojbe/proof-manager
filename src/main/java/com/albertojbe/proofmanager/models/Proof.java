@@ -1,5 +1,6 @@
 package com.albertojbe.proofmanager.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -29,9 +30,11 @@ public class Proof implements Serializable {
     @Column(nullable = false)
     private float note;
 
+    @JsonBackReference
     @ManyToOne
     private Teacher teacher;
 
+    @JsonBackReference
     @ManyToOne
     private Discipline discipline;
 }

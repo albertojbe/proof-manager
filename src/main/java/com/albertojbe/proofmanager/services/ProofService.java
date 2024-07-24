@@ -31,7 +31,7 @@ public class ProofService {
         entity.setTheme(proofRequest.theme());
         entity.setNote(proofRequest.note());
         entity.setTeacher(teacherRepository.findTeacherByName(proofRequest.teacherName()));
-        entity.setDiscipline(disciplineRepository.findDisciplineByName(proofRequest.DisciplineName()));
+        entity.setDiscipline(disciplineRepository.findDisciplineByName(proofRequest.disciplineName()));
         return proofRepository.save(entity);
     }
 }

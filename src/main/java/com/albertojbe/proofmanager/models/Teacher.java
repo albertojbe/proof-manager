@@ -1,5 +1,6 @@
 package com.albertojbe.proofmanager.models;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -28,10 +29,8 @@ public class Teacher implements Serializable {
     @Column(unique = true, nullable = false)
     private String name;
 
-    @OneToMany(mappedBy = "teacher", fetch = FetchType.EAGER)
+    @JsonManagedReference
+    @OneToMany(mappedBy = "teacher", fetch = FetchType.LAZY)
     Set<Discipline> disciplines = new HashSet<>();
-
-    @OneToMany(mappedBy = "teacher", fetch = FetchType.EAGER)
-    Set<Proof> proofs = new HashSet<>();
 
 }
