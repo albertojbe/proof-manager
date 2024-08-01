@@ -18,7 +18,7 @@ public class DisciplineController {
     public DisciplineController(DisciplineService disciplineService) {
         this.disciplineService = disciplineService;
     }
-    @GetMapping("")
+    @GetMapping
     public ResponseEntity<List<Discipline>> getDisciplines() {
         return ResponseEntity.ok(disciplineService.findAll());
     }

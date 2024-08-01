@@ -18,17 +18,12 @@ public class TeacherController {
         this.teacherService = teacherService;
     }
 
-    @GetMapping("/{name}") //nao esta funcionando
-    public ResponseEntity<TeacherRequest> getTeacherByName(@PathVariable(value = "name") String name){
-        return ResponseEntity.ok(teacherService.getTeacherByName(name));
-    }
-
     @GetMapping
     public ResponseEntity<List<Teacher>> getAllTeachers(){
         return ResponseEntity.ok(teacherService.findAll());
     }
 
-    @PostMapping("")
+    @PostMapping
     public ResponseEntity<TeacherRequest> saveTeacher(@RequestBody TeacherRequest teacherRequest){
         return ResponseEntity.ok(teacherService.saveTeacher(teacherRequest));
     }

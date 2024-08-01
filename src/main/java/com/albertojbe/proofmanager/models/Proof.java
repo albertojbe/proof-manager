@@ -30,9 +30,9 @@ public class Proof implements Serializable {
     @Column(nullable = false)
     private float note;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private Teacher teacher;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private Discipline discipline;
 }

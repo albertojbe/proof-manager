@@ -18,7 +18,7 @@ public class ProofController {
         this.proofService = proofService;
     }
 
-    @GetMapping("")
+    @GetMapping
     public ResponseEntity<List<Proof>> getProofs() {
         return ResponseEntity.ok(proofService.getProofs());
     }
