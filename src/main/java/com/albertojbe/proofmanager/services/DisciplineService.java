@@ -1,6 +1,6 @@
 package com.albertojbe.proofmanager.services;
 
-import com.albertojbe.proofmanager.models.DTOs.DisciplineDTO;
+import com.albertojbe.proofmanager.models.DTOs.DisciplineRequest;
 import com.albertojbe.proofmanager.models.Discipline;
 import com.albertojbe.proofmanager.repositories.DisciplineRepository;
 import com.albertojbe.proofmanager.repositories.TeacherRepository;
@@ -23,11 +23,11 @@ public class DisciplineService {
         return disciplineRepository.findAll();
     }
 
-    public Discipline saveDiscipline(DisciplineDTO disciplineDTO){
+    public Discipline saveDiscipline(DisciplineRequest disciplineRequest){
         Discipline entity = new Discipline();
-        entity.setName(disciplineDTO.name());
-        entity.setPeriod(disciplineDTO.period());
-        entity.setTeacher(teacherRepository.findTeacherByName(disciplineDTO.teacherName()));
+        entity.setName(disciplineRequest.name());
+        entity.setPeriod(disciplineRequest.period());
+        entity.setTeacher(teacherRepository.findTeacherByName(disciplineRequest.teacherName()));
         return disciplineRepository.save(entity);
     }
 }

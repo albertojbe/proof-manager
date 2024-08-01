@@ -1,7 +1,6 @@
 package com.albertojbe.proofmanager.models;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -31,11 +30,10 @@ public class Discipline implements Serializable {
     @Column(nullable = false)
     private int period;
 
-    @JsonBackReference
     @ManyToOne(fetch = FetchType.LAZY)
     private Teacher teacher;
 
-    @JsonManagedReference
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     @OneToMany(mappedBy = "discipline", fetch = FetchType.LAZY)
     private Set<Proof> proofs = new HashSet<>();
 }

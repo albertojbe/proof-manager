@@ -1,5 +1,5 @@
 package com.albertojbe.proofmanager.models.DTOs;
 
-public record TeacherDTO(String name) {
+public record TeacherRequest(String name) {
 
 }

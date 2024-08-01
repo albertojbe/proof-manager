@@ -30,11 +30,9 @@ public class Proof implements Serializable {
     @Column(nullable = false)
     private float note;
 
-    @JsonBackReference
     @ManyToOne
     private Teacher teacher;
 
-    @JsonBackReference
     @ManyToOne
     private Discipline discipline;
 }

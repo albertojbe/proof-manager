@@ -1,6 +1,6 @@
 package com.albertojbe.proofmanager.controllers;
 
-import com.albertojbe.proofmanager.models.DTOs.DisciplineDTO;
+import com.albertojbe.proofmanager.models.DTOs.DisciplineRequest;
 import com.albertojbe.proofmanager.models.Discipline;
 import com.albertojbe.proofmanager.services.DisciplineService;
 import org.springframework.http.HttpStatus;
@@ -23,7 +23,7 @@ public class DisciplineController {
         return ResponseEntity.ok(disciplineService.findAll());
     }
     @PostMapping("")
-    public ResponseEntity<Discipline> saveDiscipline(@RequestBody DisciplineDTO disciplineDTO){
-        return ResponseEntity.status(HttpStatus.CREATED).body(disciplineService.saveDiscipline(disciplineDTO));
+    public ResponseEntity<Discipline> saveDiscipline(@RequestBody DisciplineRequest disciplineRequest){
+        return ResponseEntity.status(HttpStatus.CREATED).body(disciplineService.saveDiscipline(disciplineRequest));
     }
 }

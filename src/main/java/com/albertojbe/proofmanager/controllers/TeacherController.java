@@ -1,6 +1,6 @@
 package com.albertojbe.proofmanager.controllers;
 
-import com.albertojbe.proofmanager.models.DTOs.TeacherDTO;
+import com.albertojbe.proofmanager.models.DTOs.TeacherRequest;
 import com.albertojbe.proofmanager.models.Teacher;
 import com.albertojbe.proofmanager.services.TeacherService;
 import org.springframework.http.ResponseEntity;
@@ -19,7 +19,7 @@ public class TeacherController {
     }
 
     @GetMapping("/{name}") //nao esta funcionando
-    public ResponseEntity<TeacherDTO> getTeacherByName(@PathVariable(value = "name") String name){
+    public ResponseEntity<TeacherRequest> getTeacherByName(@PathVariable(value = "name") String name){
         return ResponseEntity.ok(teacherService.getTeacherByName(name));
     }
 
@@ -29,7 +29,7 @@ public class TeacherController {
     }
 
     @PostMapping("")
-    public ResponseEntity<TeacherDTO> saveTeacher(@RequestBody TeacherDTO teacherDTO){
-        return ResponseEntity.ok(teacherService.saveTeacher(teacherDTO));
+    public ResponseEntity<TeacherRequest> saveTeacher(@RequestBody TeacherRequest teacherRequest){
+        return ResponseEntity.ok(teacherService.saveTeacher(teacherRequest));
     }
 }

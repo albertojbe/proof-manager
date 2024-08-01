@@ -1,11 +1,10 @@
 package com.albertojbe.proofmanager.services;
 
-import com.albertojbe.proofmanager.models.DTOs.TeacherDTO;
+import com.albertojbe.proofmanager.models.DTOs.TeacherRequest;
 import com.albertojbe.proofmanager.models.Teacher;
 import com.albertojbe.proofmanager.repositories.TeacherRepository;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -17,16 +16,16 @@ public class TeacherService {
         this.repository = repository;
     }
 
-    public TeacherDTO getTeacherByName(String name) {
+    public TeacherRequest getTeacherByName(String name) {
         var entity = repository.findTeacherByName(name);
-        return new TeacherDTO(entity.getName());
+        return new TeacherRequest(entity.getName());
     }
 
-    public TeacherDTO saveTeacher(TeacherDTO teacherDTO) {
+    public TeacherRequest saveTeacher(TeacherRequest teacherRequest) {
         Teacher entity = new Teacher();
-        entity.setName(teacherDTO.name());
+        entity.setName(teacherRequest.name());
         repository.save(entity);
-        return teacherDTO;
+        return teacherRequest;
     }
     public List<Teacher> findAll(){
         return repository.findAll();
