@@ -11,6 +11,8 @@ spring:
       hibernate:
         dialect: org.hibernate.dialect.MySQL8Dialect
       show-sql: false
+cors:
+  originPatterns: https://proof-alberto.com.br, http://localhost:8080
 
 
 

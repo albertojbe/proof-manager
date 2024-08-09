@@ -18,11 +18,13 @@ public class ProofController {
         this.proofService = proofService;
     }
 
+    @CrossOrigin(origins = {"http://localhost:8080", "https://proof-alberto.com.br"})
     @GetMapping
     public ResponseEntity<List<Proof>> getProofs() {
         return ResponseEntity.ok(proofService.getProofs());
     }
 
+    @CrossOrigin(origins = {"http://localhost:8080", "https://proof-alberto.com.br"})
     @PostMapping
     public ResponseEntity<Proof> saveProof(@RequestBody ProofRequest proofRequest) {
         return ResponseEntity.ok(proofService.saveProof(proofRequest));
