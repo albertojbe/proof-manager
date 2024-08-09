@@ -6,11 +6,11 @@ spring:
     password: root
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: none
     properties:
       hibernate:
         dialect: org.hibernate.dialect.MySQL8Dialect
-      show-sql: false
+      show-sql: true
 cors:
   originPatterns: https://proof-alberto.com.br, http://localhost:8080
 

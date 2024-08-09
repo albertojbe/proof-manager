@@ -16,7 +16,7 @@ import java.util.Set;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "TB_DISCPLIN")
+@Table(name = "TB_DISCIPLINE")
 public class Discipline implements Serializable {
     private static final long serialVersionUID = 1L;
 
