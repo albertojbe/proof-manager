@@ -1,13 +1,12 @@
-DROP TABLE IF EXISTS `tb_teacher`;
-CREATE TABLE `tb_teacher` (
+CREATE TABLE IF NOT EXISTS `tb_teacher` (
                               `id` bigint NOT NULL AUTO_INCREMENT,
                               `name` varchar(255) NOT NULL,
                               PRIMARY KEY (`id`),
                               UNIQUE KEY `UKkujic8ksvexewnd7d1xulbxk6` (`name`)
 );
 
-DROP TABLE IF EXISTS `tb_discipline`;
-CREATE TABLE `tb_discipline` (
+
+CREATE TABLE IF NOT EXISTS `tb_discipline` (
                                  `id` bigint NOT NULL AUTO_INCREMENT,
                                  `name` varchar(255) NOT NULL,
                                  `period` int NOT NULL,
@@ -17,8 +16,7 @@ CREATE TABLE `tb_discipline` (
                                  CONSTRAINT `FK2a958hrol0f4wvomr2g4tfmof` FOREIGN KEY (`teacher_id`) REFERENCES `tb_teacher` (`id`)
 );
 
-DROP TABLE IF EXISTS `tb_proof`;
-CREATE TABLE `tb_proof` (
+CREATE TABLE IF NOT EXISTS `tb_proof` (
                             `id` bigint NOT NULL AUTO_INCREMENT,
                             `note` float NOT NULL,
                             `theme` varchar(255) NOT NULL,
