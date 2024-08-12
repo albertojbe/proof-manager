@@ -21,16 +21,21 @@ public class User implements UserDetails, Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "username", unique = true, nullable = false)
+    @Column(name = "user_name", unique = true, nullable = false)
     private String username;
+
     @Column(nullable = false)
     private String password;
+
     @Column(name = "account_non_expired")
     private Boolean accountNonExpired;
+
     @Column(name = "account_non_locked")
     private Boolean accountNonLocked;
+
     @Column(name = "credentials_non_expired")
     private Boolean aredentialsNonExpired;
+
     @Column(name = "enabled")
     private Boolean enabled;
 
