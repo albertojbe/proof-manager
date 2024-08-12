@@ -1,5 +1,6 @@
 package com.albertojbe.proofmanager.services;
 
+import com.albertojbe.proofmanager.exceptions.NameNotFoundException;
 import com.albertojbe.proofmanager.models.DTOs.TeacherRequest;
 import com.albertojbe.proofmanager.models.Teacher;
 import com.albertojbe.proofmanager.repositories.TeacherRepository;
@@ -16,16 +17,19 @@ public class TeacherService {
         this.repository = repository;
     }
 
-    public TeacherRequest getTeacherByName(String name) {
-        var entity = repository.findTeacherByName(name);
-        return new TeacherRequest(entity.getName());
+    public Teacher getTeacherByName(String name) throws NameNotFoundException {
+        var teacher = repository.findTeacherByName(name);
+        if (teacher == null) {
+            throw new NameNotFoundException("Teacher with name: " + name + " not found");
+        }
+        return teacher;
     }
 
-    public TeacherRequest saveTeacher(TeacherRequest teacherRequest) {
+    public Teacher saveTeacher(TeacherRequest teacherRequest) {
         Teacher entity = new Teacher();
         entity.setName(teacherRequest.name());
         repository.save(entity);
-        return teacherRequest;
+        return entity;
     }
     public List<Teacher> findAll(){
         return repository.findAll();
