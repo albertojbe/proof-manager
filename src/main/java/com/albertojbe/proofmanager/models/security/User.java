@@ -1,4 +1,4 @@
-package com.albertojbe.proofmanager.models.user;
+package com.albertojbe.proofmanager.models.security;
 
 import jakarta.persistence.*;
 import org.springframework.security.core.GrantedAuthority;

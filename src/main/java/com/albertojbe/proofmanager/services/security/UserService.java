@@ -1,4 +1,4 @@
-package com.albertojbe.proofmanager.services.user;
+package com.albertojbe.proofmanager.services.security;
 
 import com.albertojbe.proofmanager.repositories.UserRepository;
 import org.springframework.security.core.userdetails.UserDetails;

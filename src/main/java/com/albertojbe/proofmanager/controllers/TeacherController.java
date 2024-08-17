@@ -24,7 +24,7 @@ public class TeacherController {
     }
 
     @PostMapping
-    public ResponseEntity<TeacherRequest> saveTeacher(@RequestBody TeacherRequest teacherRequest){
+    public ResponseEntity<Teacher> saveTeacher(@RequestBody TeacherRequest teacherRequest){
         return ResponseEntity.ok(teacherService.saveTeacher(teacherRequest));
     }
 }
